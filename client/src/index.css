@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: floralwhite;
+  --sidebar: white;
+  --primary: chocolate;
+  --secondary: peru;
+  --accent: lightsalmon;
+  --card: white;
+  --text: #292524;
+  --text-muted: rosybrown;
+  --border: beige;
+  --success: darkseagreen;
+  --pending: goldenrod;
+  --overdue: indianred;
+}
+
+body{
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text);
+}
+
+#root{
+  min-height: 100vh;
+}
+
+aside {
+  width: 250px;
+  min-height: 100vh;
+  background: var(--sidebar);
+  border-right: 1px solid var(--border);
+  padding: 24px;
+}
+
+main{
+  flex: 1;
+  min-width: 0;
+  padding: 32px;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.appLayout{
+  display: flex;
+  min-height: 100vh; 
+}
+
+.statsGrid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 20px;
+  margin: 28px 0;
+}
+
+.statsCard{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  border-top: 4px solid var(--primary);
+}
+
+.statsCard h3{
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.statsCard p{
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
