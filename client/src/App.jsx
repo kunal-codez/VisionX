@@ -16,15 +16,17 @@ function App(){
             <div>Reports</div>
             <div>Settings</div>
           </nav>
-          <div>
-            <img src="" alt="User profile"/>
-            <div>
-              <p>Admin User</p>
-              <p>AICTE Officer</p>
+          <div className="asideBottom">
+            <div className="user">
+              <img src="" alt="User profile"/>
+              <div className="userInfo">
+                <p>Admin User</p>
+                <p>AICTE Officer</p>
+              </div>
             </div>
+            <div className="login">
+              <button>Logout</button>
             </div>
-          <div>
-            <button>Logout</button>
           </div>
         </div>
       </aside>

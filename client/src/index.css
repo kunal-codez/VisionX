@@ -81,3 +81,68 @@ header{
   font-weight: 700;
   margin-bottom: 0;
 }
+
+aside{
+  width: 250px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--sidebar);
+  border-right: 1px solid var(--border);
+  padding: 24px 12px;
+}
+
+.logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.logo h1{
+  font-weight: 500;
+}
+
+aside nav{
+  padding-top: 20px;
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-top: 0.5px solid orange;
+  margin-top: 40px;
+}
+
+nav > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: orangered;
+}
+
+.asideBottom{
+  margin-top: auto;
+}
+
+
+.user{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid orange;
+  text-align: center;
+}
+
+.userInfo :nth-child(1){
+  font-size: large;
+}
+
+.userInfo > :nth-child(2){
+  font-size: smaller;
+}
+
+.login{
+  font-size: large;
+  text-align: center;
+}
