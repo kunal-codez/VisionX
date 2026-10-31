@@ -1,0 +1,52 @@
+.appLayout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.appLayout aside {
+  width: 250px;
+  min-width: 250px;
+  background: var(--sidebar);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--border);
+}
+
+.appLayout main {
+  flex: 1;
+  padding: 30px;
+  min-width: 0;
+}
+
+.appLayout header {
+  margin-bottom: 30px;
+}
+
+.appLayout .nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.appLayout .nav a,
+.appLayout .asideBottom a {
+  display: block;
+  padding: 12px;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.appLayout .nav a.active,
+.appLayout .asideBottom a.active {
+  background: var(--accent);
+}
+
+.appLayout .asideBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
