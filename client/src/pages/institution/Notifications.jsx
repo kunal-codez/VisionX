@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import "./Notification.css";
+import "./Notifications.css";
 
 const initialNotifications = [
   {

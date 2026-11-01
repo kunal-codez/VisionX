@@ -1,0 +1,52 @@
+.applicationFilters {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.applicationFilters input,
+.applicationFilters select {
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+.applicationFilters input {
+  flex: 1;
+  min-width: 180px;
+}
+
+.applicationFilters select {
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.applicationFilters input:focus,
+.applicationFilters select:focus {
+  border-color: var(--primary);
+}
+
+.applicationTable {
+  width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 700px) {
+  .applicationFilters {
+    flex-wrap: wrap;
+  }
+
+  .applicationFilters input {
+    flex-basis: 100%;
+  }
+
+  .applicationFilters select {
+    flex: 1;
+    min-width: 120px;
+  }
+}

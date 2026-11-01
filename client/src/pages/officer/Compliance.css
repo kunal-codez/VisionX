@@ -1,0 +1,86 @@
+.complianceFilters {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.complianceFilters input,
+.complianceFilters select {
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+.complianceFilters input {
+  flex: 1;
+  min-width: 180px;
+}
+
+.complianceFilters select {
+  min-width: 160px;
+  cursor: pointer;
+}
+
+.complianceFilters input:focus,
+.complianceFilters select:focus {
+  border-color: var(--primary);
+}
+
+.complianceTable {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.complianceStatus {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.complianceStatus.compliant {
+  background: honeydew;
+  color: seagreen;
+}
+
+.complianceStatus.awaiting {
+  background: lightyellow;
+  color: darkgoldenrod;
+}
+
+.complianceStatus.reviewing {
+  background: peachpuff;
+  color: saddlebrown;
+}
+
+.complianceStatus.overdue {
+  background: mistyrose;
+  color: firebrick;
+}
+
+.complianceEmpty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 24px;
+}
+
+@media (max-width: 700px) {
+  .complianceFilters {
+    flex-wrap: wrap;
+  }
+
+  .complianceFilters input {
+    flex-basis: 100%;
+  }
+
+  .complianceFilters select {
+    flex: 1;
+  }
+}

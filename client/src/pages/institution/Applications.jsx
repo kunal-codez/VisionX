@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import "./Application.css";
+import "./Applications.css";
 
 const initialApplications = [
   {

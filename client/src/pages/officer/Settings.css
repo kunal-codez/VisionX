@@ -1,0 +1,173 @@
+.settingsSection {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.settingsHeader {
+  margin-bottom: 24px;
+}
+
+.settingsHeader h2 {
+  margin: 0 0 7px;
+  font-size: 19px;
+}
+
+.settingsHeader p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.profileAvatar {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.profileInfo h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.profileInfo p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.settingsFormGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.settingsField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.settingsField label {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.settingsField input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+.settingsField input:focus {
+  border-color: var(--primary);
+}
+
+.settingsSaveButton {
+  margin-top: 24px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.settingsSaveButton:hover {
+  background: var(--secondary);
+}
+
+.settingsOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.settingsOption:last-child {
+  border-bottom: none;
+}
+
+.settingsOption h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.settingsOption p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.settingsOption input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.settingsPasswordForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 500px;
+}
+
+.settingsMessage {
+  margin-bottom: 24px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--primary);
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .settingsFormGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .settingsSection {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settingsOption {
+    gap: 12px;
+  }
+
+  .settingsOption p {
+    max-width: 230px;
+  }
+}
