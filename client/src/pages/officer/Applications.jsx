@@ -1,10 +1,24 @@
 import "./Applications.css";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 function Applications() {
-  const [search, setSearch] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const search = searchParams.get("q") || "";
   const [status, setStatus] = useState("All");
   const [type, setType] = useState("All");
+
+  function setSearch(value) {
+    const nextSearchParams = new URLSearchParams(searchParams);
+
+    if (value) {
+      nextSearchParams.set("q", value);
+    } else {
+      nextSearchParams.delete("q");
+    }
+
+    setSearchParams(nextSearchParams, { replace: true });
+  }
 
   const applications = [
     {
@@ -52,7 +66,9 @@ function Applications() {
   const filteredApplications = applications.filter((app) => {
     const matchesSearch =
       app.id.toLowerCase().includes(search.toLowerCase()) ||
-      app.institution.toLowerCase().includes(search.toLowerCase());
+      app.institution.toLowerCase().includes(search.toLowerCase()) ||
+      app.type.toLowerCase().includes(search.toLowerCase()) ||
+      app.status.toLowerCase().includes(search.toLowerCase());
 
     const matchesStatus =
       status === "All" || app.status === status;

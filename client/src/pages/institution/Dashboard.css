@@ -459,7 +459,7 @@
 }
 
 .dashboardTable tbody tr:hover {
-  background: #fffcf7;
+  background: var(--table-row-hover);
 }
 
 .dashboardApplicationId {
@@ -694,21 +694,6 @@
 .dashboardQuickArrow {
   color: var(--secondary, peru);
   font-size: 16px;
-}
-
-.dashboardPrototypeNote {
-  margin: 0;
-  padding: 14px 16px;
-  border: 1px solid #f0ddc9;
-  border-radius: 8px;
-  background: #fff9f1;
-  color: #795b43;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-.dashboardPrototypeNote strong {
-  color: #63452e;
 }
 
 @media (max-width: 1100px) {

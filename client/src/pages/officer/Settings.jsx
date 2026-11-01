@@ -46,7 +46,7 @@ function Settings() {
 
   const handleProfileSave = (e) => {
     e.preventDefault();
-    setMessage("Profile changes saved in this prototype.");
+    setMessage("Profile changes saved successfully.");
   };
 
   const handlePasswordChange = (e) => {
@@ -67,7 +67,7 @@ function Settings() {
       return;
     }
 
-    setMessage("Password validation successful. Backend integration required to update it.");
+    setMessage("Password details accepted.");
 
     setPassword({
       current: "",

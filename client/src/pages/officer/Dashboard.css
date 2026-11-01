@@ -137,7 +137,7 @@
 }
 
 .recentSection tbody tr:hover {
-  background: #fffaf3;
+  background: var(--table-row-hover);
 }
 
 /* ==============================

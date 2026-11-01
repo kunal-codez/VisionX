@@ -36,29 +36,6 @@
   line-height: 1.6;
 }
 
-.reportExportButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  flex-shrink: 0;
-  padding: 12px 18px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--primary, chocolate);
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.reportExportButton:hover {
-  background: var(--secondary, peru);
-  transform: translateY(-1px);
-}
-
-.reportExportButton:focus-visible,
 .reportResetButton:focus-visible,
 .reportEmptyState button:focus-visible {
   outline: 2px solid var(--primary, chocolate);
@@ -270,12 +247,6 @@
   background: #fff2e8;
 }
 
-.reportFeedback {
-  margin: 14px 24px 0;
-  color: #39764c;
-  font-size: 13px;
-}
-
 .reportTableWrapper {
   width: 100%;
   overflow-x: auto;
@@ -313,7 +284,7 @@
 }
 
 .reportTable tbody tr:hover {
-  background: #fffcf7;
+  background: var(--table-row-hover);
 }
 
 .reportApplicationId {
@@ -427,17 +398,6 @@
   font-size: 11px;
 }
 
-.reportPrototypeNote {
-  margin: 18px 0 0;
-  padding: 14px 16px;
-  border: 1px solid #f0ddc9;
-  border-radius: 8px;
-  background: #fff9f1;
-  color: #795b43;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
 @media (max-width: 1100px) {
   .reportStatsGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -456,10 +416,6 @@
 
   .reportPageHeader h1 {
     font-size: 24px;
-  }
-
-  .reportExportButton {
-    align-self: flex-start;
   }
 
   .reportSectionHeader {

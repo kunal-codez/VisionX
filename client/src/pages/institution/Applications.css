@@ -335,7 +335,7 @@
 }
 
 .application-table tbody tr:hover {
-  background: #fffdf9;
+  background: var(--table-row-hover);
 }
 
 .application-name-cell {

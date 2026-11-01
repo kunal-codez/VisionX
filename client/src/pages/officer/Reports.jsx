@@ -54,38 +54,6 @@ function Reports() {
     { label: "Overdue", value: 10, className: "overdueBar" },
   ];
 
-  const exportReport = () => {
-    const rows = [
-      ["Institution", "Total Applications", "Approved", "Pending", "Rejected"],
-      ...institutionData.map((item) => [
-        item.name,
-        item.total,
-        item.approved,
-        item.pending,
-        item.rejected,
-      ]),
-    ];
-
-    const csvContent = rows
-      .map((row) =>
-        row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(",")
-      )
-      .join("\n");
-
-    const blob = new Blob([csvContent], {
-      type: "text/csv;charset=utf-8;",
-    });
-
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = "VisionX_Institution_Report.csv";
-    link.click();
-
-    URL.revokeObjectURL(url);
-  };
-
   return (
     <>
       {/* Welcome Section */}
@@ -103,12 +71,8 @@ function Reports() {
       <section className="reportActions">
         <div>
           <h3>Performance Overview</h3>
-          <p>Reporting Period: May - October 2026</p>
+          <p>Applications from May to October 2026</p>
         </div>
-
-        <button onClick={exportReport}>
-          Export Report
-        </button>
       </section>
 
       {/* Application Statistics */}

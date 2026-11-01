@@ -38,11 +38,14 @@
   color: var(--text);
   text-decoration: none;
   border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .appLayout .nav a.active,
 .appLayout .asideBottom a.active {
-  background: var(--accent);
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
 }
 
 .appLayout .asideBottom {

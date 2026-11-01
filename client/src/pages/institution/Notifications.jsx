@@ -118,23 +118,6 @@ function formatNotificationDate(dateString) {
   });
 }
 
-function getNotificationIcon(type) {
-  switch (type) {
-    case "Application":
-      return "▤";
-    case "Clarification":
-      return "?";
-    case "Compliance":
-      return "✓";
-    case "Document":
-      return "▧";
-    case "System":
-      return "⚙";
-    default:
-      return "•";
-  }
-}
-
 function getNotificationClass(type) {
   return type.toLowerCase().replace(/\s+/g, "-");
 }
@@ -402,15 +385,6 @@ function Notification() {
                 notification.read ? "is-read" : "is-unread"
               }`}
             >
-              <div
-                className={`notification-type-icon ${getNotificationClass(
-                  notification.type
-                )}`}
-                aria-hidden="true"
-              >
-                {getNotificationIcon(notification.type)}
-              </div>
-
               <div className="notification-item-body">
                 <div className="notification-item-top">
                   <div className="notification-item-title">
@@ -504,11 +478,6 @@ function Notification() {
         </footer>
       </section>
 
-      <p className="notification-demo-note">
-        <strong>Prototype:</strong> These are sample notifications. Read
-        states and clearing read notifications are managed in frontend
-        state only and are not saved to a database.
-      </p>
     </div>
   );
 }

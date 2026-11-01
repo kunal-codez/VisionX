@@ -2,8 +2,10 @@
 
 :root {
   --background: floralwhite;
-  --navhover: rgb(225, 164, 134);
-  --navhoverActive: rgb(237, 109, 45);
+  --navhover: #f2c4a8;
+  --navhoverActive: #853b16;
+  --accent-hover: #a64b1b;
+  --table-row-hover: #fff0e4;
   --sidebar: white;
   --primary: chocolate;
   --secondary: peru;
@@ -110,7 +112,13 @@ aside {
 
 .nav nav button:hover {
   background: var(--navhover);
-  color: white;
+  color: var(--text);
+}
+
+.appLayout .nav a:hover,
+.appLayout .asideBottom a:hover {
+  background: var(--navhover);
+  color: var(--text);
 }
 
 .nav nav button.active {
@@ -171,7 +179,7 @@ aside {
 }
 
 .login button:hover {
-  background: var(--accent);
+  background: var(--accent-hover);
   color: white;
 }
 
@@ -189,34 +197,6 @@ main {
   margin-bottom: 32px;
 }
 
-.headerActions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.notificationButton {
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--primary);
-  background: var(--card);
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.notificationButton:hover {
-  background: var(--accent);
-  color: white;
-}
-
-.headerProfile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.profileAvatar,
 .userAvatar {
   display: grid;
   width: 40px;
@@ -229,14 +209,12 @@ main {
   font-weight: 600;
 }
 
-.profileInfo h4,
 .user h4 {
   margin: 0;
   color: var(--text);
   font-size: 14px;
 }
 
-.profileInfo p,
 .user p {
   margin: 4px 0 0;
   color: var(--text-muted);
@@ -258,11 +236,14 @@ main {
 .searchHeader {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
+  width: min(100%, 300px);
 }
 
 .searchHeader input {
-  width: 240px;
+  min-width: 0;
+  flex: 1;
+  width: 100%;
   padding: 11px 14px;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -276,25 +257,18 @@ main {
 }
 
 .searchHeader button {
-  padding: 11px 16px;
+  padding: 11px 14px;
   border: none;
   border-radius: 8px;
   background: var(--primary);
   color: white;
   font-size: 14px;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .searchHeader button:hover {
-  background: var(--secondary);
-}
-
-.searchHeader img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+  background: var(--accent-hover);
 }
 
 .welcomeSection {
@@ -416,7 +390,7 @@ td {
 }
 
 tbody tr:hover {
-  background: var(--background);
+  background: var(--table-row-hover);
 }
 
 .status {

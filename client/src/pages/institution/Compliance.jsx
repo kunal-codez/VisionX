@@ -225,10 +225,10 @@ function Compliance() {
     updateRequirement(
       item.id,
       {
-        document: "Document recorded — demo only",
+        document: "Document received",
         status: "Pending Verification",
       },
-      `A document upload was recorded for "${item.title}" in this prototype.`
+      `Document received for "${item.title}".`
     );
   }
 
@@ -350,8 +350,7 @@ function Compliance() {
 
         <p className="compliance-summary-footnote">
           {stats.compliant} of {stats.total} requirements are currently
-          marked compliant. This is a prototype indicator, not an official
-          AICTE compliance determination.
+          marked compliant.
         </p>
       </section>
 
@@ -554,16 +553,9 @@ function Compliance() {
 
             {selectedRequirement.status === "Overdue" && (
               <div className="compliance-modal-warning">
-                This requirement is marked overdue in the sample data.
-                Review the applicable deadline and update the supporting
-                records.
+                Review the deadline and update the supporting records.
               </div>
             )}
-
-            <div className="compliance-modal-note">
-              Document records and status changes are stored only in
-              frontend state. No document is actually uploaded or verified.
-            </div>
 
             <div className="compliance-modal-actions">
               <button
@@ -595,7 +587,7 @@ function Compliance() {
                     handleRecordUpload(selectedRequirement)
                   }
                 >
-                  Record Document Upload
+                  Mark Document as Received
                 </button>
               )}
             </div>

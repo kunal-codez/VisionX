@@ -220,12 +220,12 @@ function Dashboard() {
               <h2>Application Overview</h2>
               <p>Distribution by current application status</p>
             </div>
-            <span className="dashboardMiniBadge">Live preview</span>
+            <span className="dashboardMiniBadge">Status summary</span>
           </div>
 
           <div className="dashboardOverviewTotal">
             <strong>{total}</strong>
-            <span>Sample applications</span>
+            <span>Applications</span>
           </div>
 
           <div className="dashboardStatusBars">
@@ -402,7 +402,7 @@ function Dashboard() {
         </div>
 
         <div className="dashboardTableFooter">
-          Showing {filteredApplications.length} of {applications.length} sample
+          Showing {filteredApplications.length} of {applications.length}{" "}
           applications
         </div>
       </section>
@@ -475,11 +475,6 @@ function Dashboard() {
         </div>
       </section>
 
-      <p className="dashboardPrototypeNote">
-        <strong>Prototype notice:</strong> Statistics, applications, and
-        deadlines are illustrative sample data. Connect your backend to
-        display actual institutional records.
-      </p>
     </div>
   );
 }

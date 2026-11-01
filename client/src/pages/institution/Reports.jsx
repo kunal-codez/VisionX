@@ -81,7 +81,6 @@ function Reports() {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
   const [periodFilter, setPeriodFilter] = useState("all");
-  const [exportMessage, setExportMessage] = useState("");
 
   const filteredReports = useMemo(() => {
     const today = new Date();
@@ -144,57 +143,6 @@ function Reports() {
     setSearchTerm("");
     setStatusFilter("All");
     setPeriodFilter("all");
-    setExportMessage("");
-  };
-
-  const exportCSV = () => {
-    if (filteredReports.length === 0) {
-      setExportMessage("No records available to export.");
-      return;
-    }
-
-    const headers = [
-      "Application ID",
-      "Application Name",
-      "Institution",
-      "Submission Date",
-      "Application Status",
-      "Compliance Status",
-    ];
-
-    const escapeCSV = (value) =>
-      `"${String(value).replace(/"/g, '""')}"`;
-
-    const rows = filteredReports.map((report) => [
-      report.id,
-      report.applicationName,
-      report.institution,
-      report.submittedAt,
-      report.status,
-      report.compliance,
-    ]);
-
-    const csvContent = [headers, ...rows]
-      .map((row) => row.map(escapeCSV).join(","))
-      .join("\r\n");
-
-    const blob = new Blob(["\uFEFF", csvContent], {
-      type: "text/csv;charset=utf-8;",
-    });
-
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = "visionx-institution-report.csv";
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(url);
-
-    setExportMessage(
-      `${filteredReports.length} report record(s) exported successfully.`
-    );
   };
 
   return (
@@ -202,20 +150,11 @@ function Reports() {
       <div className="reportPageHeader">
         <div>
           <p className="reportEyebrow">INSTITUTION PORTAL</p>
-          <h1>Reports & Analytics</h1>
+          <h1>Reports</h1>
           <p className="reportSubtitle">
-            Review application outcomes and institutional compliance.
+            Review your applications and compliance at a glance.
           </p>
         </div>
-
-        <button
-          type="button"
-          className="reportExportButton"
-          onClick={exportCSV}
-        >
-          <span aria-hidden="true">↓</span>
-          Export CSV
-        </button>
       </div>
 
       <section className="reportStatsGrid" aria-label="Report summary">
@@ -269,17 +208,18 @@ function Reports() {
         <div className="reportSectionHeader">
           <div>
             <h2>Application Report</h2>
-            <p>Search and review your institution's application records.</p>
+            <p>Search and review your institution's applications.</p>
           </div>
 
           <span className="reportRecordCount">
-            {filteredReports.length} record(s)
+            {filteredReports.length} application
+            {filteredReports.length !== 1 ? "s" : ""}
           </span>
         </div>
 
         <div className="reportFilters">
           <div className="reportSearch">
-            <label htmlFor="reportSearch">Search records</label>
+            <label htmlFor="reportSearch">Search applications</label>
             <input
               id="reportSearch"
               type="search"
@@ -326,12 +266,6 @@ function Reports() {
             Reset
           </button>
         </div>
-
-        {exportMessage && (
-          <p className="reportFeedback" role="status">
-            {exportMessage}
-          </p>
-        )}
 
         <div className="reportTableWrapper">
           <table className="reportTable">
@@ -397,17 +331,12 @@ function Reports() {
 
         <div className="reportTableFooter">
           <span>
-            Showing {filteredReports.length} of {reports.length} sample records
+            Showing {filteredReports.length} of {reports.length} applications
           </span>
           <span>VisionX · Institution Reports</span>
         </div>
       </section>
 
-      <p className="reportPrototypeNote">
-        <strong>Prototype notice:</strong> These are sample records for
-        demonstration. Connect the page to your backend to display actual
-        institutional data.
-      </p>
     </div>
   );
 }

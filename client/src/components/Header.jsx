@@ -1,5 +1,6 @@
 
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 const pageTitles = {
   dashboard: "Dashboard",
@@ -10,16 +11,21 @@ const pageTitles = {
   settings: "Settings",
 };
 
-const portalNames = {
-  institution: "Institution Administrator",
-  officer: "Admin Officer",
-};
-
 function Header({ portal = "officer" }) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
   const page = location.pathname.split("/").filter(Boolean).pop();
   const pageTitle = pageTitles[page] || "Dashboard";
-  const notificationsPath = `/${portal}/notifications`;
+
+  function handleSearch(event) {
+    event.preventDefault();
+    const query = searchQuery.trim();
+    const search = query ? `?q=${encodeURIComponent(query)}` : "";
+
+    navigate(`/${portal}/applications${search}`);
+  }
 
   return (
     <header className="mainHeader">
@@ -28,25 +34,16 @@ function Header({ portal = "officer" }) {
         <p>AICTE Approval Workflow Management System</p>
       </div>
 
-      <div className="headerActions">
-        <Link
-          to={notificationsPath}
-          className="notificationButton"
-          aria-label="View notifications"
-        >
-          <span>Notifications</span>
-        </Link>
-
-        <div className="headerProfile">
-          <div className="profileAvatar">A</div>
-          <div className="profileInfo">
-            <h4>{portalNames[portal]}</h4>
-            <p>
-              {portal === "officer" ? "Approval Bureau" : "Institution Workspace"}
-            </p>
-          </div>
-        </div>
-      </div>
+      <form className="searchHeader" role="search" onSubmit={handleSearch}>
+        <input
+          type="search"
+          aria-label="Search applications"
+          placeholder="Search applications..."
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
     </header>
   );
 }

@@ -46,7 +46,12 @@
 
 .sidebar .nav a:hover {
   background: var(--navhover);
-  color: white;
+  color: var(--text);
+}
+
+.sidebar .asideBottom > a:hover {
+  background: var(--navhover);
+  color: var(--text);
 }
 
 .sidebar .nav a.active {

@@ -1,5 +1,6 @@
 
 import { useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import "./Applications.css";
 
 const initialApplications = [
@@ -84,8 +85,9 @@ function getStatusClass(status) {
 }
 
 function Application() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [applications, setApplications] = useState(initialApplications);
-  const [search, setSearch] = useState("");
+  const search = searchParams.get("q") || "";
   const [statusFilter, setStatusFilter] = useState("All");
   const [typeFilter, setTypeFilter] = useState("All");
   const [showModal, setShowModal] = useState(false);
@@ -99,6 +101,18 @@ function Application() {
     deadline: "",
   });
 
+  function setSearch(value) {
+    const nextSearchParams = new URLSearchParams(searchParams);
+
+    if (value) {
+      nextSearchParams.set("q", value);
+    } else {
+      nextSearchParams.delete("q");
+    }
+
+    setSearchParams(nextSearchParams, { replace: true });
+  }
+
   const filteredApplications = useMemo(() => {
     const query = search.trim().toLowerCase();
 
@@ -106,7 +120,8 @@ function Application() {
       const matchesSearch =
         application.title.toLowerCase().includes(query) ||
         application.id.toLowerCase().includes(query) ||
-        application.type.toLowerCase().includes(query);
+        application.type.toLowerCase().includes(query) ||
+        application.status.toLowerCase().includes(query);
 
       const matchesStatus =
         statusFilter === "All" ||
@@ -158,8 +173,8 @@ function Application() {
       type: form.type,
       submitted: new Date().toISOString().slice(0, 10),
       deadline: form.deadline || "Not set",
-      status: "Draft",
-      progress: 0,
+      status: "Submitted",
+      progress: 35,
       description: form.description.trim(),
     };
 
@@ -172,7 +187,7 @@ function Application() {
     setStatusFilter("All");
     setTypeFilter("All");
     setShowModal(false);
-    setNotice("Application draft created successfully.");
+    setNotice("Application created successfully.");
   }
 
   function handleSubmitApplication(id) {
@@ -190,9 +205,7 @@ function Application() {
     );
 
     setSelectedApplication(null);
-    setNotice(
-      "Application status updated in this prototype. No real submission was sent."
-    );
+    setNotice("Application marked as submitted.");
   }
 
   function handleViewApplication(application) {
@@ -442,7 +455,7 @@ function Application() {
               <div>
                 <p className="application-eyebrow">NEW SUBMISSION</p>
                 <h2 id="application-modal-title">Create Application</h2>
-                <p>Enter the basic details to create a draft.</p>
+                <p>Enter the application details to get started.</p>
               </div>
               <button
                 className="application-close-btn"
@@ -514,11 +527,6 @@ function Application() {
                 maxLength={500}
               />
 
-              <div className="application-modal-note">
-                This creates a local draft. Document upload and official
-                submission require backend integration.
-              </div>
-
               <div className="application-modal-actions">
                 <button
                   type="button"
@@ -531,7 +539,7 @@ function Application() {
                   type="submit"
                   className="application-primary-btn"
                 >
-                  Create Draft
+                  Create Application
                 </button>
               </div>
             </form>

@@ -17,21 +17,6 @@
   font-size: 13px;
 }
 
-.reportActions button {
-  padding: 11px 18px;
-  border: none;
-  border-radius: 8px;
-  background: var(--primary);
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.reportActions button:hover {
-  background: var(--secondary);
-}
-
 .reportStatsGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

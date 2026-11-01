@@ -108,20 +108,6 @@
   margin-bottom: 25px;
 }
 
-.settingsSectionIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #fff0e4;
-  color: var(--primary, chocolate);
-  font-size: 22px;
-  font-weight: 600;
-}
-
 .settingsSectionHeading h2 {
   margin: 2px 0 7px;
   font-size: 18px;
@@ -285,38 +271,6 @@
   min-height: 43px;
 }
 
-.settingsSecurityNotice {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 22px;
-  padding: 14px;
-  border: 1px solid #f0ddc9;
-  border-radius: 8px;
-  background: #fff9f1;
-}
-
-.settingsSecurityNotice > span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  border: 1px solid #d5a16c;
-  border-radius: 50%;
-  color: #916032;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.settingsSecurityNotice p {
-  margin: 0;
-  color: #795b43;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
 .settingsActions {
   display: flex;
   align-items: center;
@@ -343,24 +297,6 @@
   outline-offset: 3px;
 }
 
-.settingsSecondaryButton {
-  background: white;
-  color: var(--text, #292524);
-}
-
-.settingsSecondaryButton:hover {
-  background: #faf5ed;
-}
-
-.settingsResetButton {
-  background: #fff8ef;
-  color: var(--primary, chocolate);
-}
-
-.settingsResetButton:hover {
-  background: #ffecdb;
-}
-
 .settingsSaveButton {
   border-color: var(--primary, chocolate) !important;
   background: var(--primary, chocolate);
@@ -370,21 +306,6 @@
 .settingsSaveButton:hover {
   background: var(--secondary, peru);
   border-color: var(--secondary, peru) !important;
-}
-
-.settingsPrototypeNote {
-  margin: 22px 0 0;
-  padding: 14px 16px;
-  border: 1px solid var(--border, beige);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.65);
-  color: var(--text-muted, dimgray);
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-.settingsPrototypeNote strong {
-  color: var(--text, #292524);
 }
 
 @media (max-width: 760px) {
@@ -428,12 +349,6 @@
 
   .settingsSectionHeading {
     gap: 10px;
-  }
-
-  .settingsSectionIcon {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
   }
 
   .settingsSectionHeading h2 {

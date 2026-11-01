@@ -4,7 +4,7 @@ import "./Settings.css";
 
 const initialSettings = {
   institutionName: "Vision Institute of Technology",
-  aicteId: "AICTE/DEMO/2026/001",
+  aicteId: "AICTE/BIH/2026/001",
   email: "admin@visioninstitute.edu",
   phone: "9876543210",
   address: "Patna, Bihar, India",
@@ -18,7 +18,6 @@ const initialSettings = {
 
 function Settings() {
   const [settings, setSettings] = useState(initialSettings);
-  const [savedSettings, setSavedSettings] = useState(initialSettings);
   const [feedback, setFeedback] = useState("");
   const [feedbackType, setFeedbackType] = useState("success");
 
@@ -48,20 +47,8 @@ function Settings() {
       return;
     }
 
-    setSavedSettings({ ...settings });
     setFeedbackType("success");
-    setFeedback("Settings saved for this prototype session.");
-  };
-
-  const handleReset = () => {
-    setSettings({ ...savedSettings });
-    setFeedbackType("success");
-    setFeedback("Unsaved changes have been discarded.");
-  };
-
-  const handleRestoreDefaults = () => {
-    setSettings({ ...initialSettings });
-    setFeedback("");
+    setFeedback("Settings saved successfully.");
   };
 
   return (
@@ -97,9 +84,6 @@ function Settings() {
       <form onSubmit={handleSave}>
         <section className="settingsSection">
           <div className="settingsSectionHeading">
-            <div className="settingsSectionIcon" aria-hidden="true">
-              ▣
-            </div>
             <div>
               <h2>Institution Profile</h2>
               <p>
@@ -133,7 +117,6 @@ function Settings() {
                 onChange={updateField}
                 placeholder="Enter institution ID"
               />
-              <small>Sample identifier for the prototype.</small>
             </div>
 
             <div className="settingsField">
@@ -189,9 +172,6 @@ function Settings() {
 
         <section className="settingsSection">
           <div className="settingsSectionHeading">
-            <div className="settingsSectionIcon" aria-hidden="true">
-              ♧
-            </div>
             <div>
               <h2>Notification Preferences</h2>
               <p>
@@ -251,8 +231,7 @@ function Settings() {
               <div>
                 <strong>Email notifications</strong>
                 <span>
-                  Enable email delivery when supported by the connected
-                  notification service.
+                  Receive important updates by email.
                 </span>
               </div>
               <input
@@ -267,13 +246,10 @@ function Settings() {
 
         <section className="settingsSection">
           <div className="settingsSectionHeading">
-            <div className="settingsSectionIcon" aria-hidden="true">
-              ◈
-            </div>
             <div>
               <h2>Security & Session</h2>
               <p>
-                Configure your preferred session duration for this prototype.
+                Choose how long your account stays active while you are away.
               </p>
             </div>
           </div>
@@ -302,44 +278,14 @@ function Settings() {
             </div>
           </div>
 
-          <div className="settingsSecurityNotice">
-            <span aria-hidden="true">i</span>
-            <p>
-              This preference is currently for display and prototype
-              configuration only. Actual session expiry and password
-              management must be implemented by your authentication backend.
-            </p>
-          </div>
         </section>
 
         <div className="settingsActions">
-          <button
-            type="button"
-            className="settingsSecondaryButton"
-            onClick={handleReset}
-          >
-            Discard unsaved changes
-          </button>
-
-          <button
-            type="button"
-            className="settingsResetButton"
-            onClick={handleRestoreDefaults}
-          >
-            Restore defaults
-          </button>
-
           <button type="submit" className="settingsSaveButton">
             Save settings
           </button>
         </div>
       </form>
-
-      <p className="settingsPrototypeNote">
-        <strong>Prototype notice:</strong> Settings are maintained in
-        component state and are not persisted to a database. Refreshing the
-        page restores the initial sample values.
-      </p>
     </div>
   );
 }
