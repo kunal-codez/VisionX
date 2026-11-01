@@ -19,6 +19,10 @@ function Header({ portal = "officer" }) {
   const page = location.pathname.split("/").filter(Boolean).pop();
   const pageTitle = pageTitles[page] || "Dashboard";
 
+  if (page !== "dashboard") {
+    return null;
+  }
+
   function handleSearch(event) {
     event.preventDefault();
     const query = searchQuery.trim();

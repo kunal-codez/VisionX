@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Dashboard.css";
 
 const sampleApplications = [
@@ -87,6 +87,8 @@ const statusClass = (status) => {
 };
 
 function Dashboard() {
+  const { pathname } = useLocation();
+  const portalBasePath = `/${pathname.split("/")[1]}`;
   const [applications] = useState(sampleApplications);
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
@@ -155,7 +157,7 @@ function Dashboard() {
     <div className="institutionDashboard">
       <section className="dashboardWelcome">
         <div>
-          <span className="dashboardEyebrow">INSTITUTION PORTAL</span>
+          <span className="dashboardEyebrow">PORTAL DASHBOARD</span>
           <h1>Welcome back!</h1>
           <p>
             Track your AICTE applications, monitor compliance, and keep
@@ -164,7 +166,7 @@ function Dashboard() {
         </div>
 
         <Link
-          to="/institution/applications"
+          to={`${portalBasePath}/applications`}
           className="dashboardPrimaryButton"
         >
           <span aria-hidden="true">＋</span>
@@ -259,7 +261,7 @@ function Dashboard() {
           <div className="dashboardPanelHeader">
             <div>
               <h2>Compliance Snapshot</h2>
-              <p>Items requiring institutional attention</p>
+              <p>Items requiring attention</p>
             </div>
             <span className="dashboardComplianceIcon" aria-hidden="true">
               ✓
@@ -288,13 +290,13 @@ function Dashboard() {
             <span className="dashboardComplianceDot dashboardDotSuccess" />
             <div>
               <strong>Institution profile</strong>
-              <p>Keep institutional contact details updated</p>
+              <p>Keep portal contact details updated</p>
             </div>
             <span className="dashboardComplianceTag">Routine</span>
           </div>
 
           <Link
-            to="/institution/compliance"
+            to={`${portalBasePath}/compliance`}
             className="dashboardTextLink"
           >
             View compliance details <span aria-hidden="true">→</span>
@@ -306,10 +308,10 @@ function Dashboard() {
         <div className="dashboardPanelHeader dashboardRecentHeader">
           <div>
             <h2>Recent Applications</h2>
-            <p>Search and review your institution's application records.</p>
+            <p>Search and review your application records.</p>
           </div>
           <Link
-            to="/institution/applications"
+            to={`${portalBasePath}/applications`}
             className="dashboardTextLink"
           >
             View all <span aria-hidden="true">→</span>
@@ -411,7 +413,7 @@ function Dashboard() {
         <div className="dashboardPanelHeader">
           <div>
             <h2>Upcoming Deadlines</h2>
-            <p>Important dates to keep on your institutional calendar.</p>
+            <p>Important dates to keep on your calendar.</p>
           </div>
           <span className="dashboardDeadlineIcon" aria-hidden="true">◷</span>
         </div>
@@ -442,11 +444,11 @@ function Dashboard() {
       <section className="dashboardQuickLinks">
         <div>
           <h2>Quick Access</h2>
-          <p>Navigate to frequently used institution features.</p>
+          <p>Navigate to frequently used portal features.</p>
         </div>
 
         <div className="dashboardQuickLinkGrid">
-          <Link to="/institution/notifications">
+          <Link to={`${portalBasePath}/notifications`}>
             <span aria-hidden="true">♧</span>
             <div>
               <strong>Notifications</strong>
@@ -455,7 +457,7 @@ function Dashboard() {
             <span className="dashboardQuickArrow" aria-hidden="true">→</span>
           </Link>
 
-          <Link to="/institution/reports">
+          <Link to={`${portalBasePath}/reports`}>
             <span aria-hidden="true">▥</span>
             <div>
               <strong>Reports</strong>
@@ -464,7 +466,7 @@ function Dashboard() {
             <span className="dashboardQuickArrow" aria-hidden="true">→</span>
           </Link>
 
-          <Link to="/institution/settings">
+          <Link to={`${portalBasePath}/settings`}>
             <span aria-hidden="true">⚙</span>
             <div>
               <strong>Settings</strong>
