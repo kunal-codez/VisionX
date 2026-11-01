@@ -1,4 +1,3 @@
-import "../../App.css";
 import "./Dashboard.css";
 
 function Dashboard() {

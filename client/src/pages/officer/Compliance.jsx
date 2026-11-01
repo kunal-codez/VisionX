@@ -1,4 +1,3 @@
-import "../../App.css";
 import "./Compliance.css";
 import { useState } from "react";
 

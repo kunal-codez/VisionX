@@ -15,8 +15,8 @@ function Login(){
             alert("Please enter email and password");
             return;
         }
-        if(role === "instituion"){
-            navigate('/insitution/dashboard');
+        if(role === "institution"){
+            navigate("/institution/dashboard");
         }
         else{
             navigate("/officer/dashboard");
@@ -36,10 +36,10 @@ function Login(){
                     <label>Password</label><input type="password" placeholder="Enter your Password" value={password} onChange={(e)=>setPassword(e.target.value)} required />
                     <label>Select your Portal</label>
                     <select value={role} onChange={(e)=>setRole(e.target.value)}>
-                        <option>Instituion Administrator</option>
-                        <option>AICTE Officer</option>
+                        <option value="institution">Institution Administrator</option>
+                        <option value="officer">AICTE Officer</option>
                     </select>
-                    <button type="submi">
+                    <button type="submit">
                         Sign in
                     </button>
                 </form>

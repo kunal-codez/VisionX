@@ -1,0 +1,93 @@
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 18px;
+  background: var(--sidebar);
+  border-right: 1px solid var(--border);
+}
+
+.sidebar .logo {
+  align-items: flex-start;
+  padding: 20px 14px;
+}
+
+.sidebar .logo h2 {
+  margin: 0 0 5px;
+  color: var(--primary);
+  font-size: 24px;
+}
+
+.sidebar .logo span {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.sidebar .nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.sidebar .nav a {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.sidebar .nav a:hover {
+  background: var(--navhover);
+  color: white;
+}
+
+.sidebar .nav a.active {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.sidebar .asideBottom {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.sidebar .user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+}
+
+.sidebar .userAvatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+.sidebar .user h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.sidebar .user p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}

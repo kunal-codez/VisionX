@@ -1,4 +1,3 @@
-import "../../App.css";
 import "./Notifications.css";
 import { useState } from "react";
 

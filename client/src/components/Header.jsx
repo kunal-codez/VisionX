@@ -1,20 +1,25 @@
 
 import { Link, useLocation } from "react-router-dom";
 
-function Header() {
-  const location = useLocation();
-
-  const pageTitles = {
-  "/officer": "Dashboard",
-  "/officer/dashboard": "Dashboard",
-  "/officer/applications": "Applications",
-  "/officer/compliance": "Compliance Monitoring",
-  "/officer/notifications": "Notifications",
-  "/officer/reports": "Reports & Analytics",
-  "/officer/settings": "Settings",
+const pageTitles = {
+  dashboard: "Dashboard",
+  applications: "Applications",
+  compliance: "Compliance Monitoring",
+  notifications: "Notifications",
+  reports: "Reports & Analytics",
+  settings: "Settings",
 };
 
-  const pageTitle = pageTitles[location.pathname] || "Officer Portal";
+const portalNames = {
+  institution: "Institution Administrator",
+  officer: "Admin Officer",
+};
+
+function Header({ portal = "officer" }) {
+  const location = useLocation();
+  const page = location.pathname.split("/").filter(Boolean).pop();
+  const pageTitle = pageTitles[page] || "Dashboard";
+  const notificationsPath = `/${portal}/notifications`;
 
   return (
     <header className="mainHeader">
@@ -25,7 +30,7 @@ function Header() {
 
       <div className="headerActions">
         <Link
-          to="/officer/notifications"
+          to={notificationsPath}
           className="notificationButton"
           aria-label="View notifications"
         >
@@ -35,8 +40,10 @@ function Header() {
         <div className="headerProfile">
           <div className="profileAvatar">A</div>
           <div className="profileInfo">
-            <h4>Admin Officer</h4>
-            <p>Approval Bureau</p>
+            <h4>{portalNames[portal]}</h4>
+            <p>
+              {portal === "officer" ? "Approval Bureau" : "Institution Workspace"}
+            </p>
           </div>
         </div>
       </div>

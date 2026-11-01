@@ -189,6 +189,61 @@ main {
   margin-bottom: 32px;
 }
 
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.notificationButton {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--primary);
+  background: var(--card);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.notificationButton:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.headerProfile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileAvatar,
+.userAvatar {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.profileInfo h4,
+.user h4 {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.profileInfo p,
+.user p {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.titleHeader h1,
 .titleHeader h2 {
   margin: 0;
   font-size: 26px;
