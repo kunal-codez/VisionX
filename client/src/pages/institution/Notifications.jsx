@@ -236,14 +236,6 @@ function Notification() {
             requests, compliance deadlines, and document reminders.
           </p>
         </div>
-
-        <div className="notification-heading-count">
-          <span className="notification-count-icon">♧</span>
-          <div>
-            <strong>{unreadCount}</strong>
-            <span>Unread notifications</span>
-          </div>
-        </div>
       </header>
 
       {notice && (
@@ -259,47 +251,15 @@ function Notification() {
         </div>
       )}
 
-      <section
-        className="notification-stats"
-        aria-label="Notification summary"
-      >
-        <article className="notification-stat-card">
-          <div className="notification-stat-icon all-icon">▤</div>
-          <div>
-            <span>Total Notifications</span>
-            <strong>{notifications.length}</strong>
-          </div>
-        </article>
-
-        <article className="notification-stat-card">
-          <div className="notification-stat-icon unread-icon">●</div>
-          <div>
-            <span>Unread</span>
-            <strong>{unreadCount}</strong>
-          </div>
-        </article>
-
-        <article className="notification-stat-card">
-          <div className="notification-stat-icon read-icon">✓</div>
-          <div>
-            <span>Read</span>
-            <strong>{readCount}</strong>
-          </div>
-        </article>
-      </section>
-
       <section className="notification-content">
         <div className="notification-toolbar">
           <div className="notification-toolbar-title">
             <div>
-              <h2>Recent Notifications</h2>
+              <h2>All Notifications</h2>
               <p>
                 Review important updates from your institution portal.
               </p>
             </div>
-            <span className="notification-result-count">
-              {filteredNotifications.length} shown
-            </span>
           </div>
 
           <div className="notification-toolbar-actions">

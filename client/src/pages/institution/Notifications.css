@@ -45,46 +45,6 @@
   line-height: 1.7;
 }
 
-.notification-heading-count {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-  padding: 15px 18px;
-  border: 1px solid var(--border, beige);
-  border-radius: 11px;
-  background: var(--card, white);
-}
-
-.notification-count-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: #fff0e5;
-  color: var(--primary, chocolate);
-  font-size: 23px;
-}
-
-.notification-heading-count > div {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.notification-heading-count strong {
-  color: var(--primary, chocolate);
-  font-size: 23px;
-  line-height: 1;
-}
-
-.notification-heading-count > div > span {
-  color: var(--text-muted, dimgray);
-  font-size: 11px;
-}
-
 .notification-notice {
   display: flex;
   align-items: center;
@@ -107,77 +67,6 @@
   color: inherit;
   font-size: 22px;
   cursor: pointer;
-}
-
-/* Summary cards */
-
-.notification-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 17px;
-  margin-bottom: 24px;
-}
-
-.notification-stat-card {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  min-width: 0;
-  padding: 20px;
-  border: 1px solid var(--border, beige);
-  border-radius: 11px;
-  background: var(--card, white);
-  box-shadow: 0 3px 12px rgb(41 37 36 / 3%);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.notification-stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgb(41 37 36 / 7%);
-}
-
-.notification-stat-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 44px;
-  width: 44px;
-  height: 44px;
-  border-radius: 11px;
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.notification-stat-icon.all-icon {
-  background: #fff0e5;
-  color: #a65324;
-}
-
-.notification-stat-icon.unread-icon {
-  background: #fff4d8;
-  color: #946800;
-}
-
-.notification-stat-icon.read-icon {
-  background: #eaf5e9;
-  color: #387746;
-}
-
-.notification-stat-card > div:last-child {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.notification-stat-card span {
-  color: var(--text-muted, dimgray);
-  font-size: 12px;
-}
-
-.notification-stat-card strong {
-  color: var(--text, #292524);
-  font-size: 27px;
-  line-height: 1;
 }
 
 /* Main notification panel */
@@ -216,16 +105,6 @@
   color: var(--text-muted, dimgray);
   font-size: 12px;
   line-height: 1.6;
-}
-
-.notification-result-count {
-  padding: 6px 9px;
-  border-radius: 20px;
-  background: #f5f0e9;
-  color: #76563d;
-  font-size: 10px;
-  font-weight: 750;
-  white-space: nowrap;
 }
 
 .notification-toolbar-actions {
@@ -620,10 +499,6 @@
     flex-direction: column;
   }
 
-  .notification-heading-count {
-    align-self: flex-start;
-  }
-
   .notification-search-row {
     align-items: stretch;
     flex-direction: column;
@@ -654,25 +529,6 @@
 }
 
 @media (max-width: 480px) {
-  .notification-stats {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .notification-stat-card {
-    padding: 15px;
-  }
-
-  .notification-stat-icon {
-    flex-basis: 38px;
-    width: 38px;
-    height: 38px;
-  }
-
-  .notification-stat-card strong {
-    font-size: 23px;
-  }
-
   .notification-toolbar,
   .notification-section-heading {
     padding: 17px;
