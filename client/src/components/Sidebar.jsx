@@ -1,5 +1,6 @@
 
 import { NavLink } from "react-router-dom";
+import "./Sidebar.css";
 
 const portalDetails = {
   institution: {
